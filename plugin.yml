@@ -1,0 +1,9 @@
+name: Sellchest
+main: de.hotmail.gurkilein.sellchest.Sellchest
+version: 0.5
+depend: [Vault]
+softdepend: [Essentials]
+commands:
+   screload:
+      description: This Command reloads the Sellchestconfig
+      usage: /screload
