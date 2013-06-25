@@ -98,7 +98,7 @@ public class SellchestBlockListener
       if (Sellchest.perms.has(p, "sellchest.admin")) {
         if (event.getBlock().getRelative(BlockFace.DOWN).getType() == Material.CHEST)
         {
-          event.setLine(0, Sellchest.chestcolor + "[SellChest]");
+          event.setLine(0, Sellchest.chestcolor + "[BusinessCraft Sellbox]");
           event.setLine(1, Sellchest.ready);
           p.sendMessage(Sellchest.make);
         }
