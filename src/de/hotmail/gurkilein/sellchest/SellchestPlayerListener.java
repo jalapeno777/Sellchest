@@ -1,6 +1,7 @@
 package de.hotmail.gurkilein.sellchest;
 
 
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -14,6 +15,10 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+
+import com.eaveecraft.businesscraft.Queries;
+
+import de.hotmail.gurkilein.sellchest.Sellchest;
 
 public class SellchestPlayerListener
   implements Listener
@@ -53,7 +58,13 @@ public class SellchestPlayerListener
       String betragstring = df.format(betrag);
       betrag = Double.valueOf(Double.parseDouble(betragstring));
       p.sendMessage(Sellchest.success + " " + betrag);
-      Sellchest.econ.depositPlayer(p.getName(), betrag.doubleValue());
+      try {
+		Queries.payCompany(p.getName(), betrag.doubleValue());
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+      //Sellchest.econ.depositPlayer(p.getName(), betrag.doubleValue());
     }
   }
 
