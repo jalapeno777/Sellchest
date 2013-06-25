@@ -164,7 +164,7 @@ public class Sellchest extends JavaPlugin
       }
 
       if (!config.contains("language.success")) {
-        config.set("language.success", "Earned money: ");
+        config.set("language.success", "Company has earned: ");
       }
       saveConfig();
       configReload();
